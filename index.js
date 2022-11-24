@@ -113,6 +113,7 @@ const resolveAllPromises = async (sunName) => {
   return await Promise.all(pendingPromises);
 };
 
-resolveAllPromises("Business_Math").then((res) => {
-  console.log(res);
-});
+// resolveAllPromises("Business_Math").then((res) => {
+//   console.log(res);
+// });
+console.log();
