@@ -104,16 +104,15 @@ const scrapPlaylist = async (playlistUrl, dirName) => {
   return status;
 };
 
-const resolveAllPromises = async (sunName) => {
+const resolveAllPromises = async (subName) => {
   const pendingPromises = [];
-  urlCollections[sunName].forEach(async (link, index) => {
-    pendingPromises.push(scrapPlaylist(link, "Database"));
+  urlCollections[subName].forEach(async (link) => {
+    pendingPromises.push(scrapPlaylist(link, `Database/${subName}`));
   });
-
   return await Promise.all(pendingPromises);
 };
 
-// resolveAllPromises("Business_Math").then((res) => {
-//   console.log(res);
-// });
-console.log();
+const subKeys = Object.keys(urlCollections);
+resolveAllPromises(subKeys[5]).then((res) => {
+  console.log(res);
+});
